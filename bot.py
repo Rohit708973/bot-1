@@ -26,7 +26,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "Example:\n"
         "   <code>23L31A5470 mypassword</code>\n\n"
         "✨Wait for the bot to fetch your attendance data\n\n"
-        "✨Use the 🆕 <b>Renew</b> button to update your data anytime\n\n"
+        "✨Use the ↻ <b>Refresh</b> button to update your data anytime\n\n"
      
         "Ready to get started? Just send your Details! 💥"
     )
@@ -130,7 +130,7 @@ async def refresh_button_handler(update: Update, context: ContextTypes.DEFAULT_T
     password = context.user_data['users'][username]
     
     # Update status
-    await query.edit_message_text(f"🔄 Refreshing data for {username}...")
+    await query.edit_message_text(f"↻ Refreshing data for {username}...")
     
     try:
         scraper = ECAPScraper()
@@ -163,7 +163,7 @@ async def refresh_button_handler(update: Update, context: ContextTypes.DEFAULT_T
         message = format_message(data, username, todays_attendance)
         
         # Create refresh button
-        keyboard = [[InlineKeyboardButton("🔄 Refresh", callback_data=f"refresh_{username}")]]
+        keyboard = [[InlineKeyboardButton("↻ Refresh", callback_data=f"refresh_{username}")]]
         reply_markup = InlineKeyboardMarkup(keyboard)
         
         await query.edit_message_text(message, reply_markup=reply_markup)
