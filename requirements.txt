@@ -1,6 +1,6 @@
-requests
-beautifulsoup4
 python-telegram-bot
-python-dotenv
-pycryptodome
+beautifulsoup4
 cloudscraper
+pycryptodome
+python-dotenv
+requests
