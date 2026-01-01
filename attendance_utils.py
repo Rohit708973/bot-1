@@ -84,7 +84,7 @@ def calculate_skip_hours(total_present, total_classes, target_percent=75):
         needed = ( (target_percent/100.0 * total_classes) - total_present ) / (1 - (target_percent/100.0))
         import math
         needed = math.ceil(needed)
-        return needed, f"You need to attend {needed} more hours to reach {target_percent}%."
+        return needed, f"You need to attend {needed} more hours to relax😌 {target_percent}%."
 
 def format_message(data, username, todays_attendance=None):
     if not data:
