@@ -100,7 +100,7 @@ def format_message(data, username, todays_attendance=None):
     percent = data['overall_percent']
     if percent > 75:
         status_emoji = "⬆️"
-    elif percent = 75:
+    elif percent == 75:
         status_emoji = "➖"
     else:
         status_emoji = "⬇️"
