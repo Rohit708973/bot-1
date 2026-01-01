@@ -124,7 +124,7 @@ def format_message(data, username, todays_attendance=None):
         # Emoji based on subject percentage
         if sub['percent'] > 75:
             emoji = "⬆️"
-        elif sub['percent'] = 75:
+        elif sub['percent'] == 75:
             emoji = "➖"
         else:
             emoji = "⬇️"
