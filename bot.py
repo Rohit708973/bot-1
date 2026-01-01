@@ -98,7 +98,7 @@ async def handle_credentials(update: Update, context: ContextTypes.DEFAULT_TYPE)
         context.user_data['users'][username] = password
         
         # Create refresh button with username in callback data
-        keyboard = [[InlineKeyboardButton("🔄 Refresh", callback_data=f"refresh_{username}")]]
+        keyboard = [[InlineKeyboardButton("↻  Refresh", callback_data=f"refresh_{username}")]]
         reply_markup = InlineKeyboardMarkup(keyboard)
         
         await status_message.edit_text(message, reply_markup=reply_markup)
