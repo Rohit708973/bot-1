@@ -130,7 +130,7 @@ async def refresh_button_handler(update: Update, context: ContextTypes.DEFAULT_T
     password = context.user_data['users'][username]
     
     # Update status
-    await query.edit_message_text(f"↻ Refreshing data for {username}...")
+    await query.edit_message_text(f"🆕 Renewing data for {username}...")
     
     try:
         scraper = ECAPScraper()
