@@ -26,7 +26,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "Example:\n"
         "   <code>23L31A5470 mypassword</code>\n\n"
         "✨Wait for the bot to fetch your attendance data\n\n"
-        "✨Use the ↻ <b>Renew</b> button to update your data anytime\n\n"
+        "✨Use the 🆕 <b>Renew</b> button to update your data anytime\n\n"
      
         "Ready to get started? Just send your Details! 💥"
     )
@@ -98,7 +98,7 @@ async def handle_credentials(update: Update, context: ContextTypes.DEFAULT_TYPE)
         context.user_data['users'][username] = password
         
         # Create refresh button with username in callback data
-        keyboard = [[InlineKeyboardButton("↻  Renew", callback_data=f"refresh_{username}")]]
+        keyboard = [[InlineKeyboardButton("🆕  Renew", callback_data=f"refresh_{username}")]]
         reply_markup = InlineKeyboardMarkup(keyboard)
         
         await status_message.edit_text(message, reply_markup=reply_markup)
@@ -163,7 +163,7 @@ async def refresh_button_handler(update: Update, context: ContextTypes.DEFAULT_T
         message = format_message(data, username, todays_attendance)
         
         # Create refresh button
-        keyboard = [[InlineKeyboardButton("↻ Renew", callback_data=f"refresh_{username}")]]
+        keyboard = [[InlineKeyboardButton("🆕 Renew", callback_data=f"refresh_{username}")]]
         reply_markup = InlineKeyboardMarkup(keyboard)
         
         await query.edit_message_text(message, reply_markup=reply_markup)
