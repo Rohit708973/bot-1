@@ -79,7 +79,7 @@ def calculate_skip_hours(total_present, total_classes, target_percent=75):
     if current_percent >= target_percent:
         max_total = total_present / (target_percent / 100.0)
         skippable = int(max_total - total_classes)
-        return skippable, f"You can skip {skippable} hours and still maintain above {target_percent}%."
+        return skippable, f"You can relax😃 {skippable} hours and still maintain above {target_percent}%."
     else:
         needed = ( (target_percent/100.0 * total_classes) - total_present ) / (1 - (target_percent/100.0))
         import math
