@@ -88,46 +88,46 @@ def calculate_skip_hours(total_present, total_classes, target_percent=75):
 
 def format_message(data, username, todays_attendance=None):
     if not data:
-        return "❌ Failed to fetch data."
+        return "⛔ Failed to fetch data."
         
     skip_hours, advice = calculate_skip_hours(data['total_present'], data['total_classes'], 75)
     
     # Header with student info
-    msg = f"👤 **Roll Number:** `{username}`\n"
-    msg += f"📊 **Total Attendance:** {data['total_present']}/{data['total_classes']} ({data['overall_percent']:.2f}%)\n\n"
+    msg = f"🆔 **Roll Number:** `{username}`\n"
+    msg += f"📈 **Total Attendance:** {data['total_present']}/{data['total_classes']} ({data['overall_percent']:.2f}%)\n\n"
     
     # Attendance status emoji based on percentage
     percent = data['overall_percent']
-    if percent >= 90:
-        status_emoji = "🟢"
-    elif percent >= 75:
-        status_emoji = "🟡"
+    if percent > 75:
+        status_emoji = "⬆️"
+    elif percent = 75:
+        status_emoji = "➖"
     else:
-        status_emoji = "🔴"
+        status_emoji = "⬇️"
     
     msg += f"{status_emoji} {advice}\n\n"
     
     # Add Today's Attendance if available
     if todays_attendance:
-        msg += "📅 **Today's Attendance:**\n"
+        msg += "🕘 **Today's Attendance:**\n"
         for subject, status in todays_attendance.items():
             # Add emoji based on status
             if 'A' in status:
-                status_emoji = "❌"
+                status_emoji = "😔"
             else:
-                status_emoji = "✅"
+                status_emoji = "😀"
             msg += f"  {status_emoji} {subject}: `{status}`\n"
         msg += "\n"
     
-    msg += "📚 **Subject-wise Attendance:**\n"
+    msg += "📘 **Subject-wise Attendance:**\n"
     for sub in data['subjects']:
         # Emoji based on subject percentage
-        if sub['percent'] >= 90:
-            emoji = "🟢"
-        elif sub['percent'] >= 75:
-            emoji = "🟡"
+        if sub['percent'] > 75:
+            emoji = "⬆️"
+        elif sub['percent'] = 75:
+            emoji = "➖"
         else:
-            emoji = "🔴"
+            emoji = "⬇️"
         
         msg += f"  {emoji} {sub['name']}: {sub['attended']}/{sub['conducted']} ({sub['percent']:.2f}%)\n"
         
